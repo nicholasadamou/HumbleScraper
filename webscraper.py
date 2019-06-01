@@ -84,7 +84,7 @@ class Page:
                 Below is if the item is on sale
                 -------------------------------
                 price_modifier : Price modifier in percent or sale amount - eg: "-50%"
-                price_full     : Original item price, usually striked out - eg: "$40.00"
+                price_full     : Original item price, usually striped out - eg: "$40.00"
         """
         try:  # Wait till parent container loads in
             parent_div = "//div[@class='price-info']"
