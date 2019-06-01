@@ -47,6 +47,10 @@ name = page.get_price_data()
 # >> {'price_preview': 'FREE!', 'price_full': '$14.99', 'price_currency': 'USD', 'price': '0', 'price_modifier': '-100%', 'availability': 'InStock'}
 ```
 
+## Related
+
+- [Building a Web Scraper from start to finish](https://hackernoon.com/building-a-web-scraper-from-start-to-finish-bb6b95388184) - Basics of Python-based web-scraping.
+
 ## License
 
 MIT © [Nicholas Adamou](https://nicholasadamou.com/)
