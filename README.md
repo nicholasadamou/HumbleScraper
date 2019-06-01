@@ -1,6 +1,6 @@
 # HumbleScraper
 
-> A small script to retrieve **Name**, **Price/Sale**, and **Time** information from [Humble Bundle](https://www.humblebundle.com) store links for use in bots or web-hooks. uses [selenium](https://selenium-python.readthedocs.io/).
+> A small script to retrieve **Name**, **Price/Sale**, and **Time** information from [Humble Bundle](https://www.humblebundle.com) store links for use in 🤖 or web-hooks:. uses [selenium](https://selenium-python.readthedocs.io/).
 
 ---
 
