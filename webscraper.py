@@ -48,9 +48,7 @@ class Page:
             # 8 since 4 time/time-format pairs. If the numbers were not detected, scan for them again
             # (slippery javascript dynamic clock ticking down)
             while len(time_left) != 8:
-                time_left = []
-                for i in timedivs:
-                    time_left.append(i.text)
+                time_left = [i.text for i in timedivs]
                 time_left = list(filter(None, time_left))
                 log.debug("NOT 8, re-scanning")
                 log.debug(time_left)
@@ -93,13 +91,18 @@ class Page:
             return False
         else:
             # Get price data and build output dict
-            price_preview = self.driver.find_element(By.XPATH, "{}/span[@itemprop='offers']".format(parent_div)).text
-            price = self.driver.find_element(By.XPATH, "{}/meta[@itemprop='price']".format(parent_div)).get_attribute(
-                "content")
-            price_currency = self.driver.find_element(By.XPATH, "{}/meta[@itemprop='priceCurrency']".format(
-                parent_div)).get_attribute("content")
-            availability = self.driver.find_element(By.XPATH, "{}/link[@itemprop='availability']".format(
-                parent_div)).get_attribute("href")
+            price_preview = self.driver.find_element(
+                By.XPATH, f"{parent_div}/span[@itemprop='offers']"
+            ).text
+            price = self.driver.find_element(
+                By.XPATH, f"{parent_div}/meta[@itemprop='price']"
+            ).get_attribute("content")
+            price_currency = self.driver.find_element(
+                By.XPATH, f"{parent_div}/meta[@itemprop='priceCurrency']"
+            ).get_attribute("content")
+            availability = self.driver.find_element(
+                By.XPATH, f"{parent_div}/link[@itemprop='availability']"
+            ).get_attribute("href")
 
             # log.debug("{} and& {} and& {}".format(price, price_currency, availability))
             data = {"price_preview": price_preview,
@@ -118,7 +121,7 @@ class Page:
             else:
                 price_modifier = self.driver.find_element(By.XPATH, "//span[@class='discount-amount']").text
                 price_full = self.driver.find_element(By.XPATH, "//span[@class='full-price']").text
-                data.update({"price_modifier": price_modifier, "price_full": price_full})
+                data |= {"price_modifier": price_modifier, "price_full": price_full}
 
             return data
 
